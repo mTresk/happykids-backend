@@ -99,6 +99,7 @@ class GradeResource extends Resource
         return $table
             ->columns([
                 SpatieMediaLibraryImageColumn::make('avatar')
+                    ->collection('grades')
                     ->label('Изображение')
                     ->rounded(),
                 TextColumn::make('title')->label('Название')->sortable(),
