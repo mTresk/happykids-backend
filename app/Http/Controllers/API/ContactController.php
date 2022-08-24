@@ -3,15 +3,13 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\ContactRequest;
+use App\Http\Requests\ContactFormRequest;
 use App\Mail\MailForm;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Validation\ValidationException;
 
 class ContactController extends Controller
 {
-    public function store(ContactRequest $request): \Illuminate\Http\JsonResponse
+    public function store(ContactFormRequest $request): \Illuminate\Http\JsonResponse
     {
         $formData = $request->validated();
 

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PaymentRequest extends FormRequest
+class ContactFormRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,16 +26,16 @@ class PaymentRequest extends FormRequest
         return [
             'name' => 'required',
             'phone' => 'required',
-            'amount' => 'required'
+            'age' => 'required'
         ];
     }
 
     public function messages()
     {
         return [
-            'name.required' => 'Введите ФИО ребенка',
+            'name.required' => 'Введите ваше имя',
             'phone.required' => 'Введите ваш телефон',
-            'amount.required' => 'Введите сумму',
+            'age.required' => 'Введите возраст ребенка',
         ];
     }
 }

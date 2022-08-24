@@ -37,7 +37,7 @@ class TransactionResource extends Resource
                 Tables\Columns\TextColumn::make('amount')->label('Сумма')->sortable(),
                 Tables\Columns\TextColumn::make('phone')->label('Телефон')->sortable(),
                 Tables\Columns\TextColumn::make('created_at')->label('Дата')
-                    ->dateTime('d-m-Y m:h')
+                    ->dateTime('d-m-Y H:i')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('status')->label('Статус')->sortable(),
             ])

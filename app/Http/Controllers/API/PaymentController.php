@@ -4,7 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Enums\PaymentStatusEnum;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\PaymentRequest;
+use App\Http\Requests\PaymentFormRequest;
 use App\Mail\PaymentData;
 use App\Models\Transaction;
 use App\Service\PaymentService;
@@ -38,20 +38,17 @@ class PaymentController extends Controller
      * @throws UnauthorizedException
      * @throws ValidationException
      */
-    public function create(PaymentRequest $request, PaymentService $service)
+    public function create(PaymentFormRequest $request, PaymentService $service)
     {
-//        $request->validate([
-//            'amount' => 'required',
-//            'name' => 'required',
-//            'phone' => 'required'
-//        ]);
-
         $amount = (float)$request->get('amount');
         $description = $request->get('name');
+        $phone = $request->get('phone');
 
-        $data = $request->validated();
-
-        $transaction = Transaction::create($data);
+        $transaction = Transaction::create([
+            'amount' => $amount,
+            'description' => $description,
+            'phone' => $phone
+        ]);
 
         if ($transaction) {
             $link = $service->createPayment($amount, $description, [
@@ -105,3 +102,4 @@ class PaymentController extends Controller
         };
     }
 }
+

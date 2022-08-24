@@ -23,10 +23,17 @@ Route::group(['middleware' => 'cors'], function () {
             'settings' => \App\Http\Controllers\API\SettingsController::class,
             'contact' => \App\Http\Controllers\API\ContactController::class,
             'policy' => \App\Http\Controllers\API\PolicyController::class,
+//            'create' => \App\Http\Controllers\API\PaymentController::class,
+//            'callback' => \App\Http\Controllers\API\PaymentController::class,
         ]
     );
-    // Оплата
-    Route::name('payment.callback')->match(['GET', 'POST'], 'payments/callback', [PaymentController::class, 'callback']);
-    Route::name('payment.create')->post('payments/create', [PaymentController::class, 'create']);
 });
+
+// Оплата
+Route::match(['GET', 'POST'], 'payments/callback', [PaymentController::class, 'callback'])->name('payment.callback');
+Route::post('create', [PaymentController::class, 'create'])->name('payment.create');
+
+Route::redirect('/login', '/admin/login')->name('login');
+
+
 
