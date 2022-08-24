@@ -19,7 +19,12 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['http://localhost:5173', 'https://happykids.tresk.site', 'http://happykids-backend.test'],
+    'allowed_origins' => [
+        'http://localhost:5173',
+        'https://happykids.maximtresk.ru',
+        'http://happykids-backend.test',
+        'https://yoomoney.ru'
+    ],
 
     'allowed_origins_patterns' => [],
 
