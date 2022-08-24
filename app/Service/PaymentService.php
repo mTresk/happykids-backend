@@ -40,7 +40,7 @@ class PaymentService
             'capture' => false,
             'confirmation' => [
                 'type' => 'redirect',
-                'return_url' => 'https://happykids.tresk.site',
+                'return_url' => 'https://happykids.maximtresk.ru',
             ],
             'metadata' => [
                 'transaction_id' => $options['transaction_id']

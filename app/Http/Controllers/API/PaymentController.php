@@ -55,7 +55,7 @@ class PaymentController extends Controller
                 'transaction_id' => $transaction->id
             ]);
 
-            return redirect()->away($link);
+            return response($link);
         }
     }
 
